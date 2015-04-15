@@ -1,0 +1,23 @@
+.mContent {
+  display: inline-block;
+  height: 50px; }
+
+.mList {
+  list-style: none;
+  width: 200px;
+  border-left: 1px solid blue;
+  border-right: 1px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative; }
+
+.mItem {
+  padding: 5px 10px;
+  border-top: 1px solid black; }
+
+.mItem:last-child {
+  border-bottom: 1px solid black; }
+
+.mItem.picked {
+  background: lightskyblue;
+  cursor: move; }

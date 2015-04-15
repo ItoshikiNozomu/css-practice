@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .br{
+            border-radius: 100%;
+        }
+        .wr{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+        .cir{
+            background: red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+        }
+        .arc{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+
+        }
+        .clp-r{
+            clip: rect(auto,auto,auto,50px);
+        }
+        .clp-l{
+            clip: rect(auto,auto,auto,50px);
+        }
+    </style>
+</head>
+<body>
+<!--半饼
+<div class="wr br clp">
+    <div class="cir br clp" ></div>
+
+</div>
+-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../src/scripts/circleLoad.js"></script>
+</body>
+</html>
