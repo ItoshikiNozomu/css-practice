@@ -15,7 +15,7 @@ describe('Array', function() {
     });
 });
 
-describe('Array', function() {
+describe('Custom functions', function() {
     describe('#customModule', function() {
         it('should return the Math calculation result',function(){
 
@@ -26,3 +26,21 @@ describe('Array', function() {
         })
     });
 });
+
+describe('async functions',function(){
+    describe('#async function',function(){
+        it('callback should evaluate 1 as data',function(done){
+            return ModuleSample.doAsync(function(data){
+                assert.equal(1,data);
+                done();
+            })
+        })
+        it('callback should resolve 1 as data',function(){
+            return ModuleSample.doPromise().then(function(data){
+                assert.equal(1,data);
+                //done();
+            })
+        })
+
+    })
+})

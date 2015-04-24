@@ -6,9 +6,16 @@
     "gulp-sass": "latest",
     "gulp-watch": "latest",
     "gulp-livereload": "latest",
-    "mocha": "latest"
+    "mocha": "latest",
+    "webpack":"latest",
+    "css-loader":"latest",
+    "style-loader":"latest"
   },
   "scripts": {
-    "test": "mocha"
+
+    "test":"mocha"
+  },
+  "directories":{
+
   }
 }
