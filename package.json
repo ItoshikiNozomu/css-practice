@@ -9,7 +9,8 @@
     "mocha": "latest",
     "webpack":"latest",
     "css-loader":"latest",
-    "style-loader":"latest"
+    "style-loader":"latest",
+    "sinon":"latest"
   },
   "scripts": {
 

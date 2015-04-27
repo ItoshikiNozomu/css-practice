@@ -2,7 +2,7 @@
  * Created by laury.lu on 2015/4/21.
  */
 var ModuleSample = require('../src/scripts/modules/ModuleSample');
-
+var sinon = require('sinon');
 //console.log(ModuleSample)
 
 var assert = require("assert");
@@ -26,11 +26,11 @@ describe('Custom functions', function() {
         })
     });
 });
-
+/*
 describe('async functions',function(){
     describe('#async function',function(){
         it('callback should evaluate 1 as data',function(done){
-            return ModuleSample.doAsync(function(data){
+             ModuleSample.doAsync(function(data){
                 assert.equal(1,data);
                 done();
             })
@@ -40,6 +40,32 @@ describe('async functions',function(){
                 assert.equal(1,data);
                 //done();
             })
+        })
+
+    })
+})
+*/
+describe('we use sinon for some function statistics',function(){
+    describe('#spy utils',function(){
+        it('spy on functions calls',function(){
+            function fn(){};
+            var spy = sinon.spy(fn);
+            fn();
+            assert(true,spy.called);
+            assert(true,spy.calledOnce);
+        });
+
+        it('record the method call count',function(){
+            var obj = {};
+            obj.fn = function(){};
+            var spy = sinon.spy(obj,'fn');
+
+            obj.fn();
+
+            assert.equal(1,spy.callCount);
+            assert.equal(1,obj.fn.callCount);
+
+
         })
 
     })
