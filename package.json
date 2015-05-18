@@ -10,7 +10,10 @@
     "webpack":"latest",
     "css-loader":"latest",
     "style-loader":"latest",
-    "sinon":"latest"
+    "sinon":"latest",
+    
+    "gulp-sftp":"latest",
+    "chardet":"latest"
   },
   "scripts": {
 
