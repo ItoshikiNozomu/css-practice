@@ -1,7 +1,7 @@
 //var jschardet = require('jschardet')
 var fs = require('fs')
 var readline = require('readline')
-
+var iconv = require('iconv-lite')
 //var rStream = fs.createReadStream('/works/temp/my-templates/dcd.shtml')
 //
 //
@@ -20,7 +20,7 @@ var readline = require('readline')
 //    
 //})
 
-var chardet = require('chardet');
+var chardet = require('chardet')
 
 
 //console.log(chardet.detect(new Buffer('hello there!')));
@@ -28,4 +28,10 @@ var chardet = require('chardet');
 //chardet.detectFile('/path/to/file', function(err, encoding) {});
 //// or
 //chardet.detectFileSync('/path/to/file');
-console.log(chardet.detectFileSync('/works/temp/my-templates/dcd.shtml'))
+var encode = chardet.detectFileSync('/works/temp/my-templates/dcd.shtml')
+
+var rStream = fs.createReadStream('/works/temp/my-templates/dcd.shtml')
+
+.pipe(iconv.decodeStream(encode))
+    .pipe(iconv.encodeStream('utf8'))
+    .pipe(fs.createWriteStream('/utf8file.html'));

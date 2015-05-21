@@ -13,7 +13,8 @@
     "sinon":"latest",
     
     "gulp-sftp":"latest",
-    "chardet":"latest"
+    "chardet":"latest",
+    "iconv-lite":"latest"
   },
   "scripts": {
 

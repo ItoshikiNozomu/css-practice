@@ -13,22 +13,36 @@ gulp.task('sass',function(){
         .pipe(gulp.dest('dist/css'))
 });
 
+var tplPath = '/works/temp/my-templates/**/*html'
+
+
 gulp.task('watch', function () {
     //livereload.listen()
     //var watcher = gulp.watch('src/**/*.scss',['sass'])
     //watcher.on('change',function(evt){
     //    console.log(evt);
     //})
-    var tplWatcher = gulp.watch('./reference.txt',['uploadTest']);
-})
-
-//todo
-gulp.task('uploadTest',function () {
-    return gulp.src('./reference.txt')
+    var tplWatcher = gulp.watch(tplPath,['uploadTest'])
+    tplWatcher.on('change',function(evt){
+        gulp.src(evt.path)
         .pipe(sftp({
             host: '192.168.146.108',
             user: 'luhuan',
             pass: 'luhuan123',
-            remotePath:'./'
+            remotePath:'./dest_folder'
         }))
+    })
+    //console.log(tplWatcher)
+})
+
+//todo
+gulp.task('uploadTest',function () {
+    console.log(arguments[0])
+//    return gulp.src(tplPath)
+//        .pipe(sftp({
+//            host: '192.168.146.108',
+//            user: 'luhuan',
+//            pass: 'luhuan123',
+//            remotePath:'./dest_folder'
+//        }))
 })
