@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var imgSrc = 'http://localhost/test.jpg'
+		var eleC = document.createElement('canvas')
+		var img = new Image()
+		
+		var loadPromise = new Promise(function(res){
+			img.onload = function(data){
+				res(data)
+			}
+			img.src = imgSrc
+		})
+
+		loadPromise .then(function(imgObj){
+			console.log(imgObj)
+		})
+
+		// var c = document.getElementById('c')
+		// ctx = c.getContext('2d')
+		// var img=new Image()
+		// img.src="http://localhost/test.jpg"
+		// img.onload = function(){
+		// 	ctx.drawImage(img,0,0,300,250)
+		// 	var jpegUrl = c.toDataURL("image/jpeg")
+		// 	console.log(jpegUrl)
+		// }
+	</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+.cnt{
+	background: #ff5a54;
+	color: #fff;
+	font-size: 0.1rem;
+	letter-spacing: 2px;
+	max-width: 640px;
+	margin: auto;
+}
+
+.sum {
+	
+	padding: 15px 25px;
+}
+
+.sum .count{
+	margin-top: 25px;
+}
+.sum .num{
+	font-size:0.3rem;
+}
+.sum .yen{
+	font-style: normal;
+	letter-spacing: -7px;
+}
+.sum .detail{
+	border-radius: 15px;
+	padding:1px 4px;
+	background: orange;
+	font-size: 0.1rem;
+	color: white;
+}
+
+.sub-sum{
+	padding: 7px 25px;
+	margin-top:1px;
+	background: rgba(255,255,255,0.2);
+	
+	
+}
+.acct{
+	background: white;
+	color: black;
+	padding: 15px 25px;
+	padding-top: 20px;
+}
+.p-r{
+	float: right;
+}
+
+.ico{
+	  background: url("./view1-ico.png") no-repeat 0 0;
+	  display: inline-block;
+	  vertical-align: middle;
+	  width:15px;
+		height: 15px;
+	background-size: 20px 350px;
+	padding-right:5px;
+}
+
+.ico.ico-y{
+	
+	background-position: 0 0;
+	
+}
+.ico.ico-n{
+	background-position: 0 -35px;
+}
+
+.ico.ico-pocket{
+	background-position:-0px -265px;
+}
+.ico.ico-wx{
+	  background-position: -0 -285px;
+  transform: scale(1);
+  width: 21px;
+  height: 20px;
+}
+.acct .type-line{
+	margin-left: 20px;
+}
+.l-bind{
+	border-radius: 15px;
+	background: gray;
+	color:white;
+	padding:1px 4px;
+	font-size: 0.2rem;
+}
+.r-links{
+	padding: 15px 25px;
+	background-color: white;
+}
+.r-link{
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+.tips{
+	background-color: white;
+	color:black;
+	padding: 15px 15px;
+	font-size: 0.2rem;
+}
+.tips p{
+	font-size: 12px;
+	letter-spacing: 0;
+	
+}
+.mask{
+	
+	top: 0;
+	left: 0;
+	background: rgba( 0,0,0,0.4);
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+}
+.popup{
+	display: block;
+	position: fixed;
+	left: 50%;
+	top:40%;
+	transform: translateY(-50%) translateX(-50%);
+	
+	padding: 10px;
+	background: transparent;
+	z-index: 100;
+}
+
+.m-modal{
+	
+	position: relative;
+	border-radius: 10px;
+	background: white;
+	width: 200px;
+	word-wrap: break-word
+	
+}
+.m-hd,.m-ft{
+	text-align: center;
+	font-size:0.2rem;
+	padding:6px 10px;
+}
+.m-bd{
+	border-top:1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 15px 5px;
+	font-size: 0.1rem;
+	
+}
