@@ -121,3 +121,51 @@ body{
 	line-height: 1rem;
 	margin: auto;
 }
+.mod-promo{
+	position: relative;
+	width: 100%;
+}
+.new-user,.nor{
+	display: inline-block;
+	width:100%;
+	position: relative;
+	height: 1.5rem;
+	
+}
+.nor{
+	width:49%;
+	height: 1.3rm;
+	display: inline-block;
+}
+.link-promo{
+	
+	display: block;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.promo-text,.promo-img{
+	display: inline-block;
+	
+	
+}
+.promo-text{
+	line-height: 150%;
+	padding-left: .2rem;
+	
+}
+
+.promo-text strong{
+	color:orange;
+	font-size: .45rem;
+}
+.promo-text small{
+	color:gray;
+	font-size: .25rem;
+}
+.promo-img{
+	float: right;
+	height: 100%;
+}
+
