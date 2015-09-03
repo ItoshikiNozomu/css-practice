@@ -156,14 +156,23 @@ body{
 	
 }
 
-.promo-text strong{
+.new-user strong{
 	color:orange;
 	font-size: .45rem;
 }
-.promo-text small{
+.new-user small{
 	color:gray;
 	font-size: .25rem;
 }
+.nor strong{
+	color:orange;
+	font-size: .3rem;
+}
+.nor small{
+	color:gray;
+	font-size: .2rem;
+}
+
 .promo-img{
 	float: right;
 	height: 100%;
