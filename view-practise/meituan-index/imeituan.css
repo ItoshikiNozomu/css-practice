@@ -178,3 +178,65 @@ body{
 	height: 100%;
 }
 
+.mod-guess{
+	margin-top: 20px;
+}
+
+.guess-item{
+	position: relative;
+	height: 1.7rem;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.shop-logo,.shop-desc{
+	display:inline-block;
+}
+
+.shop-logo{
+	    overflow: hidden;
+    position: relative;
+}
+
+.shop-logo img{
+	height: 1.7rem;	
+}
+
+.slogan{
+	    /*content: "免预约";*/
+    font-size: .24rem;
+    background: #06c1ae;
+    color: #fff;
+    padding: .05rem;
+    position: absolute;
+    width: 1.3rem;
+    text-align: center;
+    -webkit-transform: rotateZ(-45deg);
+    left: -.35rem;
+    top: .2rem;
+}
+
+.shop-desc{
+	padding-left: 15px;
+	vertical-align: top;
+	padding-bottom: 10px;
+	position: relative;
+	height: 100%;
+	width:5rem;
+}
+
+.shop-name{
+	font-size: .3rem;
+	margin-bottom: 15px;
+}
+
+.sale-info{
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+}
+
+.sold-count{
+	float: right;
+}
+
