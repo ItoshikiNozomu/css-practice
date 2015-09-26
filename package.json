@@ -11,7 +11,8 @@
     "css-loader":"latest",
     "style-loader":"latest",
     "sinon":"latest",
-    
+    "browserify":"latest",
+    "babel":"latest",
     "gulp-sftp":"latest",
     "chardet":"latest",
     "iconv-lite":"latest"

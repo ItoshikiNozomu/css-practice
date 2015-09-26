@@ -33,7 +33,7 @@ describe('some ajax functions',()=>{
 	let server = Sinon.fakeServer.create()
 	
 	before(()=>{
-		
+		server.configure({})
 	})
 	after(()=>{
 		

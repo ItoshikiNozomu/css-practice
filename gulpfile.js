@@ -5,8 +5,9 @@ var gulp = require('gulp')
 var sass = require('gulp-sass')
 var livereload = require('gulp-livereload')
 var sftp = require('gulp-sftp')
+var path = require('path')
 //var watch = require('gulp-watch');
-gulp.task('sass',function(){
+gulp.task('sass', function () {
     //console.log(arguments)
     return gulp.src('src/css/*.scss')
         .pipe(sass())
@@ -22,27 +23,44 @@ gulp.task('watch', function () {
     //watcher.on('change',function(evt){
     //    console.log(evt);
     //})
-    var tplWatcher = gulp.watch(tplPath,['uploadTest'])
-    tplWatcher.on('change',function(evt){
-        gulp.src(evt.path)
-        .pipe(sftp({
-            host: '192.168.146.108',
-            user: 'luhuan',
-            pass: 'luhuan123',
-            remotePath:'./dest_folder'
-        }))
-    })
-    //console.log(tplWatcher)
+    var tplWatcher = gulp.watch(tplPath, ['uploadTest'])
+    // tplWatcher.on('change',function(evt){
+    //     gulp.src(evt.path)
+    //     .pipe(sftp({
+    //         host: '192.168.146.108',
+    //         user: 'luhuan',
+    //         pass: 'luhuan123',
+    //         remotePath:'./dest_folder'
+    //     }))
+    // })
+    console.log(tplWatcher)
 })
 
 //todo
-gulp.task('uploadTest',function () {
+gulp.task('uploadTest', function () {
     console.log(arguments[0])
-//    return gulp.src(tplPath)
-//        .pipe(sftp({
-//            host: '192.168.146.108',
-//            user: 'luhuan',
-//            pass: 'luhuan123',
-//            remotePath:'./dest_folder'
-//        }))
+    //    return gulp.src(tplPath)
+    //        .pipe(sftp({
+    //            host: '192.168.146.108',
+    //            user: 'luhuan',
+    //            pass: 'luhuan123',
+    //            remotePath:'./dest_folder'
+    //        }))
+})
+
+
+gulp.task('watchViews', function () {
+    gulp.watch('./view-practise/**/src/*.scss', (evt) => {
+        console.log(path.join(path.resolve(path.dirname(evt.path), '..', 'dist')))
+//todo 这样无法输出错误信息
+        try {
+            gulp.src(evt.path)
+                .pipe(sass())
+                .pipe(gulp.dest(path.join(path.resolve(path.dirname(evt.path), '..', 'dist'))))
+        } catch (error) {
+            console.error(error)
+        }
+
+
+    })
 })
