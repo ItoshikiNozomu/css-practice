@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+		<body>
+			<div class="test">aaaaa</div>
+			<div class="hd">
+				<div class="img-box J_box" style="padding:300px;">
+					
+				</div>
+			</div>
+			<script src="http://libs.cdnjs.net/mustache.js/0.7.2/mustache.min.js"></script>
+			<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+			
+			<script>
+				'use strict'
+				
+				var tpl = `
+				
+				<div class="l-box J_box">
+					<style scoped>
+					.test{color:red}
+					*{
+						padding:0;
+						margin:0;
+					}
+					.l-box{
+						display:block;
+						width:400px;
+						position:relative;
+						overflow:hidden;
+					}
+					ul{
+						list-style:none;
+					}
+					a{
+						display:block
+					}
+					.left,.right{
+						display:block;
+						position:absolute;
+						
+						top:0;
+					}
+					
+					.left{
+						left:-400px
+					}
+					.right{
+						left:400px
+					}
+					.rl-trans{
+						transition:transform 0.2s linear
+					}
+					
+					</style>
+					<ul class="l-img-list">
+						
+						<li class="left J_f">
+							<a>
+								<img src="{{{left}}}" width="400">
+							</a>
+						</li>
+						
+						<li class="mid J_f ">
+							<a>
+								<img src="{{{mid}}}" width="400">
+							</a>
+						</li>
+						
+						<li class="right J_f">
+							<a>
+								<img src="{{{right}}}" width="400">
+							</a>
+						</li>
+					</ul>
+					<ul>
+						{{#images}}
+						<span></span>
+						{{/images}}
+					</ul>
+				<div>
+				`
+				var images = [
+					'http://cdn6.jinxidao.com/uploads/201510/5628a999e13ba.jpg',
+					'http://cdn6.jinxidao.com/uploads/201510/5620d80de4853.jpg',
+					'http://cdn6.jinxidao.com/uploads/201510/562d8074bb5d5.jpg',
+					'http://cdn6.jinxidao.com/uploads/201510/561ce70e30397.jpg',
+					'http://cdn6.jinxidao.com/uploads/201510/56261f1c2f2e5.jpg'
+				]
+				
+				var viewObj = {
+					images:images,
+					left:images[1],
+					mid:images[2],
+					right:images[3]
+				}
+				var showingIndex = 2
+				var htmlStr = Mustache.render(tpl,viewObj)
+				var $box = $('.J_box')
+				
+				$box.append(htmlStr)
+				var $fEle = $('.J_f')
+				var $left = $('.left img')
+				var $mid = $('.mid img')
+				var $right = $('.right img')
+				var canMove = false
+				var xStart = -1
+				var xShift = 0
+				var transClz = 'rl-trans'
+				var onmsDown = function(evt){
+					xStart = evt.pageX
+					xShift = 0
+					canMove = true
+					console.log('d')
+				}
+				
+				var getNewIndex = function(oldIndex,delta,arr){
+					var temp = oldIndex+delta
+					if(temp>0){
+						return temp%arr.length
+					}else{
+						return arr.length+temp
+					}
+				}
+				
+				var onmsUp = function(evt){
+					canMove = false
+					if(xShift==0)return
+					
+					xStart = -1
+					//reset place
+					
+					
+					
+					//todo 区分左右
+					if(Math.abs(xShift)>100){
+						var delta =xShift/Math.abs(xShift)
+						$fEle.css({
+							transform:'translateX('+delta*400+'px)'
+						})
+						var leftIndex,rightIndex
+						showingIndex = getNewIndex(showingIndex,-delta,images)
+						leftIndex = getNewIndex(showingIndex,-1,images)
+						rightIndex = getNewIndex(showingIndex,1,images)
+						
+						
+						var onAniEnd = function(){
+							//console.log(showingIndex)
+							$fEle.removeClass(transClz)
+							$left.attr('src',images[leftIndex])
+							$mid.attr('src',images[showingIndex])
+							$right.attr('src',images[rightIndex])
+							$fEle.attr('style','')
+						}
+						console.log(leftIndex,showingIndex,rightIndex)
+						
+					}else{
+						$fEle.css({
+							transform:'translateX(0)'
+						})
+					}
+					xShift = 0
+					console.log('u')
+					$fEle.addClass(transClz).on('webkitTransitionEnd',onAniEnd)
+					
+				}
+				var onmsMove = function(evt){
+					//console.log(canMove)
+					if(!canMove)return
+					if($fEle.hasClass('rl-trans'))return
+					xShift = evt.pageX-xStart
+					$fEle.css({
+						transform:'translateX('+xShift+'px)'
+					})
+					evt.preventDefault()
+					
+				}
+				
+				$('.J_box').on('mousedown',onmsDown).on('mouseup',onmsUp).on('mousemove',onmsMove)
+								
+			</script>
+		</body>
+	</head>
+</html>

@@ -1,50 +1,365 @@
-.hd-nav {
-  border-top: 5px solid green; }
-  .hd-nav .cnt {
-    width: 1024px;
-    margin: auto; }
-  .hd-nav .links, .hd-nav .link-item, .hd-nav .acct-box {
-    display: inline-block; }
-  .hd-nav .acct-box {
-    float: right;
-    background: green;
-    color: white;
-    width: 175px;
-    line-height: 30px;
-    font-size: 16px;
+@charset "UTF-8";
+.test {
+  transition: transform 0.3s linear; }
+
+body {
+  padding-bottom: 50px; }
+
+.acct-box {
+  padding-left: 10px;
+  background: black;
+  color: white;
+  padding-right: 25px;
+  position: relative; }
+
+.my-links, .acct-box {
+  display: inline-block; }
+
+.my-links {
+  float: right;
+  position: relative; }
+
+.acct-box::after {
+  content: '';
+  border-width: 4px 4px 0 4px;
+  border-style: solid dashed;
+  border-color: #fff transparent transparent;
+  position: absolute;
+  top: 42%;
+  right: 5px;
+  transition: .2s;
+  transform: rotate(180deg); }
+
+.acct-box:hover:after {
+  transform: rotate(0); }
+
+.acct-box:hover .acct-list {
+  max-height: 400px; }
+
+.acct-list {
+  position: absolute;
+  width: 90px;
+  max-width: 200px;
+  background: black;
+  color: white;
+  max-height: 0;
+  transition: all 0.2s;
+  overflow: hidden;
+  top: 100%;
+  right: 0; }
+
+.acct-item {
+  padding-left: 5px;
+  color: white;
+  transition: .3s; }
+
+.acct-item:hover {
+  background: seagreen; }
+
+.act-bar {
+  background: black;
+  line-height: 32px;
+  font-size: 14px;
+  color: white;
+  padding: 1px 5px;
+  vertical-align: middle;
+  padding-right: 0; }
+
+.act-bar a {
+  color: white;
+  padding: 0 10px; }
+
+a.dvd {
+  border-right: 1px solid #5d5d5d; }
+
+.main-links {
+  width: 960px;
+  margin: auto;
+  margin-top: 22px;
+  border-bottom: 1px solid #e5e5e5;
+  display: block; }
+
+.main-links li {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 20px; }
+
+.main-links a {
+  color: #999;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 3px solid transparent; }
+
+.main-links a:hover {
+  border-bottom: 3px solid green; }
+
+.main-links li:first-child {
+  margin-right: 200px; }
+
+.main-links li:first-child a {
+  border-bottom: 3px solid transparent; }
+
+.logo {
+  color: transparent;
+  background: url(http://www.lagou.com/images/site-customer/header/img/logo.png);
+  width: 97px;
+  height: 34px; }
+
+.logo a:hover {
+  border: none; }
+
+.app-link:before {
+  display: inline-block;
+  content: ' ';
+  background: url(http://www.lagou.com/images/site-customer/header/img/app_icon.png) no-repeat;
+  vertical-align: middle;
+  height: 16px;
+  width: 17px; }
+
+.job-detail, .side-wrapper {
+  display: inline-block;
+  vertical-align: top; }
+
+.bd-main {
+  padding-top: 40px;
+  width: 1024px;
+  margin: auto; }
+
+.job-detail {
+  width: 625px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 30px;
+  display: inline-block; }
+
+.side-wrapper {
+  display: inline-block; }
+
+.job-title {
+  background: #91cebe;
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 13px;
+  padding-top: 5px; }
+
+.job-title:before {
+  content: '';
+  background: url(http://www.lagou.com/images/title_arrow.png) no-repeat;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: -6px;
+  display: inline-block;
+  position: absolute; }
+
+.job-comp {
+  font-size: 16px; }
+
+.job-name {
+  margin-top: 20px;
+  font-size: 22px; }
+
+.act-panel {
+  display: inline-block;
+  position: relative;
+  left: 250px; }
+
+.ico {
+  height: 26px;
+  width: 27px;
+  display: inline-block; }
+
+.ico-fav {
+  background: url(http://www.lagou.com/images/jd_collection.png) -2px -2px no-repeat; }
+
+.ico-warn {
+  background: url(http://www.lagou.com/images/jd_report_button.png) -2px -2px no-repeat; }
+
+.ico-wechat {
+  background: url(http://www.lagou.com/images/jd_weixin_share.png) -2px -2px no-repeat; }
+
+.job-tags {
+  margin-top: 20px;
+  display: block; }
+
+.tag-item:first-child {
+  color: red;
+  font-size: 26px; }
+
+.tag-item {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  font-size: 20px; }
+
+.tag-item:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(http://www.lagou.com/images/jd_icon.png) no-repeat;
+  vertical-align: middle;
+  top: 0;
+  left: 0; }
+
+.job-favour {
+  margin-top: 20px; }
+
+.pub-date {
+  display: block;
+  margin-top: 25px;
+  font-size: 14px; }
+
+.job-desc {
+  margin-top: 30px; }
+
+.job-desc:before {
+  display: inline-block;
+  content: "职位描述";
+  border-left: 5px solid green;
+  font-size: 18px;
+  padding-left: 10px; }
+
+.job-desc p {
+  font-size: 14px;
+  line-height: 32px; }
+
+.job-publisher {
+  margin-top: 30px; }
+  .job-publisher .cnt {
     position: relative; }
-  .hd-nav .uname {
-    margin-left: 15px; }
-  .hd-nav .acct-box::after {
-    content: '';
-    border-width: 4px 4px 0;
-    border-style: solid dashed;
-    border-color: #fff transparent transparent;
-    margin-right: 2px;
+  .job-publisher .comp-logo, .job-publisher .hr, .job-publisher .sts {
+    display: inline-block;
+    vertical-align: middle; }
+  .job-publisher .sts {
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px; }
+  .job-publisher :nth-child(4) {
+    border-left: 1px solid black; }
+  .job-publisher .comp-logo {
+    border-radius: 100%;
+    overflow: hidden; }
+  .job-publisher small {
+    font-size: 14px;
+    text-align: center;
+    display: block; }
+  .job-publisher .name {
+    font-size: 18px; }
+  .job-publisher .desc {
+    font-size: 14px;
+    color: gray; }
+  .job-publisher .sts {
+    text-align: center; }
+
+.ico-tip {
+  background: url(http://www.lagou.com/images/user/publisher_data_tip.png) no-repeat;
+  display: inline;
+  color: transparent;
+  position: relative;
+  top: 3px; }
+
+.tip {
+  position: relative;
+  display: inline-block; }
+
+.tip-text {
+  display: none;
+  position: absolute;
+  top: 30px;
+  transform: translateX(-50%);
+  border: 1px solid gray;
+  padding: 1px 3px;
+  white-space: nowrap; }
+
+.tip-text:before {
+  content: '';
+  display: inline-block;
+  border: 8px solid transparent;
+  border-top: 0;
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  border-bottom-color: gray; }
+
+.tip-trigger:hover .tip-text {
+  display: block; }
+
+.my-resume {
+  margin-top: 40px;
+  font-size: 14px;
+  position: relative; }
+  .my-resume .wxBind, .my-resume .resume-logo, .my-resume .resume-info {
+    display: inline-block;
     vertical-align: middle;
-    position: absolute;
-    top: 40%;
-    right: 10px;
-    transition: .2s;
-    transform: rotate(180deg); }
-  .hd-nav .acct-box:hover:after {
-    transform: rotate(0); }
-  .hd-nav .acct-box:hover .acct-list {
-    max-height: 400px; }
-  .hd-nav .acct-list {
-    position: absolute;
-    width: 100%;
-    background: green;
+    margin-right: 50px; }
+  .my-resume .wxBind {
+    width: 36px;
+    height: 46px;
+    background: url(http://www.lagou.com/images/job_detail.png) no-repeat;
+    background-position: -136px -1px; }
+  .my-resume .resume-logo {
+    width: 36px;
+    height: 46px;
+    background: url(http://www.lagou.com/images/job_detail.png) no-repeat; }
+  .my-resume .resume-info strong {
+    text-decoration: underline;
+    font-weight: bold; }
+  .my-resume .sub-resume {
+    margin-top: 30px;
+    float: right;
+    padding: 10px 20px;
+    background: limegreen;
     color: white;
-    max-height: 0;
-    transition: all 0.2s;
-    overflow: hidden;
-    top: 100%; }
-    .hd-nav .acct-list a {
-      color: white; }
-  .hd-nav .acct-item {
-    padding-left: 15px;
-    color: white;
-    transition: .3s; }
-  .hd-nav .acct-item:hover {
-    background: seagreen; }
+    font-size: 22px; }
+  .my-resume .resume-act {
+    float: right; }
+  .my-resume .resume-act a:first-child {
+    border-right: 1px solid gray;
+    padding: 0 5px; }
+  .my-resume .l, .my-resume .r {
+    display: inline-block; }
+  .my-resume .l {
+    width: 69%; }
+  .my-resume .r {
+    width: 30%; }
+
+.cf:after {
+  display: block;
+  content: ' ';
+  clear: both; }
+
+.f-r {
+  float: right; }
+
+.side-wrapper .title {
+  color: green;
+  font-size: 18px; }
+  .side-wrapper .title img {
+    vertical-align: bottom; }
+
+.comp-info {
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 30px; }
+  .comp-info h6 {
+    margin-top: 15px;
+    font-size: 15px; }
+  .comp-info p, .comp-info li {
+    text-indent: 8px; }
+
+.similar-jobs {
+  margin-top: 20px; }
+  .similar-jobs .title {
+    border-bottom: 2px solid green;
+    padding: 3px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block; }
+  .similar-jobs .img-box, .similar-jobs .job-general {
+    display: inline-block;
+    vertical-align: top; }
+  .similar-jobs .job-list {
+    padding: 12px 8px; }
