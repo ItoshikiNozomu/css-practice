@@ -123,6 +123,36 @@
 					}
 				}
 				
+				var showNext = function(delta){
+					//先把左/右边备用的图片更换成目标图片
+					//再进行滚动
+					var leftIndex,rightIndex
+					showingIndex = getNewIndex(showingIndex,-delta,images)
+					leftIndex = getNewIndex(showingIndex,-1,images)
+					rightIndex = getNewIndex(showingIndex,1,images)
+					
+					if(delta>0){
+						$left.attr('src',images[showingIndex])
+					}else{
+						
+						$right.attr('src',images[showingIndex])
+					}
+					
+					var onAniEnd = function(){
+							//console.log(showingIndex)
+						$fEle.removeClass(transClz)
+						$left.attr('src',images[leftIndex])
+						$mid.attr('src',images[showingIndex])
+						$right.attr('src',images[rightIndex])
+						$fEle.attr('style','')
+					}
+					$fEle.css({
+						transform:'translateX('+400*delta/Math.abs(delta)+'px)'
+					})
+					$fEle.addClass(transClz).one('webkitTransitionEnd',onAniEnd)
+					
+				}
+				
 				var onmsUp = function(evt){
 					canMove = false
 					if(xShift==0)return
@@ -132,36 +162,46 @@
 					
 					
 					
-					//todo 区分左右
+					
 					if(Math.abs(xShift)>100){
 						var delta =xShift/Math.abs(xShift)
-						$fEle.css({
-							transform:'translateX('+delta*400+'px)'
-						})
-						var leftIndex,rightIndex
-						showingIndex = getNewIndex(showingIndex,-delta,images)
-						leftIndex = getNewIndex(showingIndex,-1,images)
-						rightIndex = getNewIndex(showingIndex,1,images)
+						showNext(delta)
+						// console.log(delta)
+						
+						// $fEle.css({
+						// 	transform:'translateX('+delta*400+'px)'
+						// })
+						// var leftIndex,rightIndex
+						// showingIndex = getNewIndex(showingIndex,-delta,images)
+						// leftIndex = getNewIndex(showingIndex,-1,images)
+						// rightIndex = getNewIndex(showingIndex,1,images)
 						
 						
-						var onAniEnd = function(){
-							//console.log(showingIndex)
-							$fEle.removeClass(transClz)
-							$left.attr('src',images[leftIndex])
-							$mid.attr('src',images[showingIndex])
-							$right.attr('src',images[rightIndex])
-							$fEle.attr('style','')
-						}
-						console.log(leftIndex,showingIndex,rightIndex)
+						// var onAniEnd = function(){
+						// 	//console.log(showingIndex)
+						// 	$fEle.removeClass(transClz)
+						// 	$left.attr('src',images[leftIndex])
+						// 	$mid.attr('src',images[showingIndex])
+						// 	$right.attr('src',images[rightIndex])
+						// 	$fEle.attr('style','')
+						// }
+						// console.log(leftIndex,showingIndex,rightIndex)
+						// $fEle.addClass(transClz).one('webkitTransitionEnd',onAniEnd)
 						
 					}else{
+						//todo
 						$fEle.css({
 							transform:'translateX(0)'
+						})
+						$fEle.addClass(transClz).one('webkitTransitionEnd',function(evt){
+							$fEle.attr('style','').removeClass(transClz)
 						})
 					}
 					xShift = 0
 					console.log('u')
-					$fEle.addClass(transClz).on('webkitTransitionEnd',onAniEnd)
+					$fEle.addClass(transClz).one('webkitTransitionEnd',function(evt){
+						$fEle.attr('style','').removeClass(transClz)
+					})
 					
 				}
 				var onmsMove = function(evt){

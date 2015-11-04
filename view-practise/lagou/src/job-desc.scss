@@ -422,7 +422,7 @@ a.dvd{
 	.wxBind,.resume-logo,.resume-info,{
 		display: inline-block;
 		vertical-align: middle;
-		margin-right: 50px;
+		margin-left: 20px;
 	}
 	
 	.wxBind{
@@ -524,6 +524,19 @@ a.dvd{
 		padding:12px 8px;
 		
 		
+	}
+}
+.job-comment{
+	margin-top:20px;
+	h5{
+		font-size: 18px;
+		font-weight: normal;
+		
+	}
+	.no-cmt{
+		text-align: center;
+		vertical-align: middle;
+		font-size: 16px;
 	}
 }
 

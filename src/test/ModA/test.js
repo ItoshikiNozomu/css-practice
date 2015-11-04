@@ -1,5 +1,13 @@
 'use strict'
 //let Mocha = require('mocha')
+
+var domino = require('domino');
+var $ = require('jquery')(domino.createWindow());
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+$.support.cors = true; // cross domain
+$.ajaxSettings.xhr = function () { return new XMLHttpRequest(); };
+global.$ = $
+
 let assert = require('assert')
 let Sinon = require('sinon')
 let testMod = require('../../scripts/modules/ModA')
@@ -7,7 +15,9 @@ let testMod = require('../../scripts/modules/ModA')
 let chai = require("chai");
 let chaiAsPromised = require("chai-as-promised");
 let should = chai.should()
- 
+
+
+
 chai.use(chaiAsPromised);
 
 
@@ -41,6 +51,7 @@ describe('some ajax functions',()=>{
 	
 	
 	it('should return the correct description',()=>{
+		//$.get('localhost').then((d)=>{console.log(d)})
 		//console.log(testMod.querySomething('a'))
 		// testMod.querySomething('a').then(function(data){
 		// 	assert.equal(data,'a is good')

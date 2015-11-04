@@ -1,5 +1,7 @@
 'use strict'
-let $ = require('jquery')
+
+// let $
+
 let sum = function(a,b){
 	if(typeof a==='number'&&typeof b==='number'){
 		return a+b
@@ -18,6 +20,13 @@ let querySomething =(sid)=>{
 	})
 }
 
+// module.exports = function(jquery){
+// 	$=jquery
+// 	return {
+// 		sum:sum,
+// 		querySomething:querySomething
+// 	}
+// }
 module.exports = {
 	sum:sum,
 	querySomething:querySomething

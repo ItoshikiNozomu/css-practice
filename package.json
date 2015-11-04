@@ -15,7 +15,11 @@
     "babel":"latest",
     "gulp-sftp":"latest",
     "chardet":"latest",
-    "iconv-lite":"latest"
+    "iconv-lite":"latest",
+    "xmlhttprequest":"latest",
+    "jsdom":"latest",
+    "jquery":"latest",
+    "domino":"latest"
   },
   "scripts": {
 
