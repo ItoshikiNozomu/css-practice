@@ -14,8 +14,11 @@ let sum = function(a,b){
 let querySomething =(sid)=>{
 	return new Promise((res,rej)=>{
 		return $.ajax({
-			url:'http://example.com',
+			url:'http://test.com',
 			
+		})
+		.then((d)=>{
+			console.log(d)
 		})
 	})
 }

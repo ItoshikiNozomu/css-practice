@@ -19,13 +19,15 @@
     "xmlhttprequest":"latest",
     "jsdom":"latest",
     "jquery":"latest",
-    "domino":"latest"
+    
+    "jquery-mockjax ":"latest",
+    "jasmine":"latest"
   },
   "scripts": {
 
     "test":"mocha"
   },
   "directories":{
-
+    
   }
 }

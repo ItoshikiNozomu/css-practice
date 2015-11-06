@@ -36,18 +36,51 @@ var l1n1 = {num:7,left:l2n1,right:l2n2}
 console.log(walkBinTreeAllPaths(l1n1))
 //node.left.value<node.value   
 //node.right.value>node.value
+
+class BstNode{
+	
+	
+	constructor(value){
+		this.val = value
+		this.left = null
+		this.right = null
+	}
+}
+
 class BinarySearchTree{
 	
 	
-	constructor(){
-		var a = function(){
-			console.log('aaaa')
+	constructor(value){
+		if(value){
+			this.root = new BstNode(value)
+		}else{
+			this.root = null
 		}
 	}
-	insert(){
-		a()
+	insert(value) {
+		var insertNode = function(target,newNode){
+			if(target.value>newNode.value){
+				if(target.left){
+					
+				}else{
+					
+				}
+			}else if(target.value===newNode.value){
+				
+			}else{
+				
+			}
+		}
+		var node = new BstNode(value)
+		if (!this.root) {
+			this.root = node
+		} else {
+			insertNode(this.root,node)
+		}
+
+
 	}
-	search(){}
+	search(value){}
 	inOrderTraverse(){}
 	preOrderTraverse(){}
 	postOrderTraverse(){}
@@ -56,5 +89,4 @@ class BinarySearchTree{
 	remove(){}
 	
 }
-  var bst = new BinarySearchTree()
-  bst.insert()
+  

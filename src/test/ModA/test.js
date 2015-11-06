@@ -1,12 +1,15 @@
 'use strict'
 //let Mocha = require('mocha')
 
-var domino = require('domino');
-var $ = require('jquery')(domino.createWindow());
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+//var domino = require('domino');
+let jsdom = require('jsdom').jsdom
+let $ = require('jquery')(jsdom('').defaultView)
+let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 $.support.cors = true; // cross domain
 $.ajaxSettings.xhr = function () { return new XMLHttpRequest(); };
-global.$ = $
+global.$ = $;
+
+$.mockjax = require('jquery-mockjax')
 
 let assert = require('assert')
 let Sinon = require('sinon')
@@ -40,25 +43,5 @@ describe('sum',function(){
 
 
 describe('some ajax functions',()=>{
-	let server = Sinon.fakeServer.create()
 	
-	before(()=>{
-		server.configure({})
-	})
-	after(()=>{
-		
-	})
-	
-	
-	it('should return the correct description',()=>{
-		//$.get('localhost').then((d)=>{console.log(d)})
-		//console.log(testMod.querySomething('a'))
-		// testMod.querySomething('a').then(function(data){
-		// 	assert.equal(data,'a is good')
-		// 	done()
-		// })
-		//return Promise.resolve(2 + 2).should.eventually.equal(4);
-		//return Promise.resolve(2).should.eventually.equal(2)
-		return testMod.querySomething('a').should.eventually.equal('a is good')
-	})
 })

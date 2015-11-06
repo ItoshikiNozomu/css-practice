@@ -51,14 +51,15 @@ gulp.task('uploadTest', function () {
 
 gulp.task('watchViews', function () {
     gulp.watch('./view-practise/**/src/*.scss', (evt) => {
-        //console.log(path.join(path.resolve(path.dirname(evt.path), '..', 'dist')))
-        //todo 这样无法输出错误信息
+        
         
         gulp.src(evt.path)
             .pipe(sass().on('error', sass.logError))
+            //spriter
             
             .pipe(gulp.dest(path.join(path.resolve(path.dirname(evt.path), '..', 'dist'))))
-            //.on('error',function(){return false})
+
+
 
 
     })
