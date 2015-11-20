@@ -1,49 +1,42 @@
-var quickSort = function(arr){
+'use strict'
+let quickSort = function(arr){
 	
-	
-	var dist = function(_arr){
-		var pos = 0,t = 0
-		for(var i =1;i<_arr.length;i++){
-			//todo
-			if(i<pos&&_arr[pos]<_arr[i]){
-				t = _arr[i]
-				for(var j=i+1;j<=pos;i++){
-					_arr[j-1] = _arr[j]
-				}
-				_arr[pos] = t
-				pos = pos-1
+	let dist = (l,r)=>{
+		
+		
+		let pivot = arr[Math.floor((r+l)/2)],t = 0
+		let i=l,j=r
+		while(i<=j){
+			console.log(i,j)
+			while(arr[i]<pivot){
+				i = i+1
 			}
-			if(i>pos&&_arr[pos]>_arr[i]){
-				t = _arr[i]
-				for(var j = i;j>=pos;j--){
-					_arr[j] = _arr[j-1]
-				}
-				_arr[pos] = t
-				pos = pos+1
+			while(arr[j]>pivot){
+				j = j-1
 			}
-			//console.log(_arr)
-			
+			if(i<=j){
+				t = arr[i]
+				arr[i] = arr[j]
+				arr[j] = t
+				i = i+1 
+				j = j-1
+			}
 		}
-		//console.log(_arr,pos)
-		return pos
+		return i
 	}
 	
-	var getNewArr = function(_arr){
-		var pos = dist(_arr)
-		
-		if(_arr.length<=2){
+	let recrSort = (l,r)=>{
+		if(r-l>1){
+			let index = dist(l,r)
+			if(l<index-1)
+				recrSort(l,index-1)
+			if(index<r)
+				recrSort(index,r)
 			
-			return _arr
-		}else{
-			return getNewArr(_arr.slice(0,pos)).concat(_arr[pos]).concat(getNewArr(_arr.slice(pos+1,_arr.length)))
 		}
-		
-		
-		
 	}
-	
-	return getNewArr(arr)
-	
+	recrSort(0,arr.length-1)
+	return arr
 }
 
 console.log(quickSort([1,3,2,4,0,0,2,6,3,11,9,23,1]))
