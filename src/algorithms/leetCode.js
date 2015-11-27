@@ -340,7 +340,7 @@ var invertTree = (root)=>{
 
 var mRt = {
 	val: 1,
-	left: {
+	left: {   //
 		val: 2,
 		left: {
 			val: 3,
