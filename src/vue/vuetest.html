@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head></head>
+	<body>
+		<div id="box">
+			<button @click="showAlert">{{btnName}}</button>
+			<div v-show="showx">xxx</div>
+			<input type="text" v-model="mName">
+			<p>name is {{mName}}</p>
+			<ul v-for="a in [1,2,3,4]">
+				<li>{{a}}</li>
+			</ul>
+			<ul v-for="a in datas">
+				<li>{{$key}}-{{a}}</li>
+			</ul>
+			<my-comp content="some content"></my-comp>
+		</div>
+		<script src="./vue.min.js"></script>
+		<script>
+			'use strict'
+			
+			
+			var MyComp = Vue.extend({
+				template:`
+				<button>a component!</button>
+				<p>{{content}}</p>
+				`,
+				props:['content'],
+				data:{
+					btnName:'my button'
+				}
+			})
+			
+			//Vue.component('my-comp',MyComp)
+			
+			
+			var vueObj = new Vue({
+				el:'#box',
+				data:{
+					btnName:'my btn',
+					showx:false,
+					mName:'aaa',
+					datas:{a:'1',b:'2'}
+				},
+				methods:{
+					showAlert:function(){alert(1)}
+				},
+				components:{
+					'my-comp':MyComp
+				}
+			})
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
